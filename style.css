@@ -1,0 +1,329 @@
+@font-face {
+    font-family: "tolkin";
+    src: url(./assets/fonts/Cinzel-VariableFont_wght.ttf);
+}
+
+* {
+    font-family: "tolkin";
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(./assets/img/Без\ названия.jpeg);
+    background-position: 25% 15%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
+
+.container-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./assets/img/Без\ названия.jpeg);
+    background-position: 25% 15%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 2px solid #2a0404cc;
+    border-radius: 25px;
+    width: 50%;
+    height: 30%;
+    gap: 15px
+}
+
+.container-menu__logo {
+    width: 80%;
+    border-radius: 20px;
+    color: aliceblue;
+    font-size: 70px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.container-menu__library {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 50%;
+    border-radius: 20px;
+    color: aliceblue;
+    font-size: 30px;
+}
+
+.library__btn {
+    width: 100px;
+    border-radius: 25px;
+    font-size: 20px;
+    box-shadow: 0 5px 15px 0 #fef6f6;
+    transition: 1s;
+}
+
+.library__btn:hover {
+    box-shadow: 0 5px 15px 0 #ffffff;
+    transform: scale(1.2);
+}
+
+.container-menu__newBook {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 50%;
+    border-radius: 20px;
+    color: aliceblue;
+    font-size: 30px;
+}
+
+.newBook__btn {
+    width: 100px;
+    border-radius: 25px;
+    font-size: 20px;
+    box-shadow: 0 5px 15px 0 #fef6f6;
+}
+
+.newBook__btn:hover {
+    box-shadow: 0 5px 15px 0 #ffffff;
+    transform: scale(1.2);
+}
+
+
+
+
+
+
+/* modal window */
+.modalBackground {
+    background: rgba(0, 0, 0, 0.733);
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.myDialog {
+    position: absolute;
+    width: 30vw;
+    height: 50vh;
+    border-radius: 55px;
+    background-color: rgba(98, 98, 98, 0.748);
+    /* background-image: url(/src/img/header-footer.JPG);
+    background-size: 650px 350px;
+    background-position: 45% 15%; */
+    cursor: default;
+    padding: 40px 20px;
+    border: 2px solid #0000004f;
+    box-shadow: 0px 0px 35px #0000005b;
+    animation: Wrapper 1s;
+}
+
+@keyframes Wrapper{
+  0%{
+    transform: translateY(-200px);
+  }
+}
+
+.modal__img {
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    box-shadow: 0 5px 15px 0 #d95e5e;
+}
+
+.container-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px
+
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form__item {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px
+}
+
+.item__name {
+    font-size: 25px;
+}
+
+.item__input {
+    width: 15vw;
+    height: 3vh;
+    background-color: #281414;
+    border-radius: 25px;
+    color: #b36e00;
+    text-align: center;
+}
+
+.item__input:focus {
+    outline: 2px solid black;
+  }
+
+.item__input:visited {
+    background-color: #dd0000;
+}
+
+.container-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.form__btn {
+    top: 20px;
+    left: 100px;
+    width: 200px;
+    height: 40px;
+    border: 2px solid #2a0404cc;
+    border-radius: 35px;
+    background-color: #281414;
+    box-shadow: 0 5px 15px 0 #d95e5e;
+    color: #b36e00;
+    transition: 1s;
+}
+
+.form__btn:hover {
+    color: #9c6e04;
+    background-color: #370e0e;
+    box-shadow: 0 5px 15px 0 #9c6e04;
+    transform: scale(1.2);
+}
+
+.modal__img {
+    width: 200px;
+    height: 200px;
+    border-radius: 55px;
+    background-image: url(./assets/img/Эстетика\ книг❤️.jpeg);
+    background-position: 25% 15%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+::backdrop {
+    background-color: rgba(9, 8, 8, 0.748)
+}
+
+.modalClose {
+    font-family: var(--font-regular);
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 25px;
+}
+
+.modalClose img {
+    margin: 3px;
+    width: 24px;
+    height: 24px;
+}
+
+.modalWindow {
+    color: #02aad0;
+    text-shadow: 0px 0px 20px #02aad0;
+    position: relative;
+    font-size: 50px;
+    text-align: center;
+    border-radius: 35px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+
+
+
+/* LIBRARY */
+
+.container-library {
+    display: flex;
+    justify-content: space-evenly;
+    width: 90vw;
+    height: 90vh;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.533);
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 30vh;
+    border: 2px solid #2a0404cc;
+    box-shadow: 0 5px 15px 0 #d95e5e;
+    border-radius: 25px;
+    margin-top: 10px;
+    background-color:  rgba(110, 110, 110, 0.623);
+}
+
+.book-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.book__text {
+    color: aliceblue;
+}
+
+.book__name {
+    width: 95%;
+    text-align: center;
+    font-style: italic;
+    background-color:  rgba(210, 210, 210, 0.623);
+    box-shadow: 0 5px 15px 0 #a8a8a8;
+    border-radius: 25px;
+    border: none;
+}
+
+.read-status {
+    background-color: #39cc1c;
+}
+
+
+
+
+
+.exit {
+    position: absolute;
+    top: 20px;
+    left: 45vw;
+    width: 200px;
+    border-radius: 25px;
+    font-size: 20px;
+    text-align: center;
+    box-shadow: 0 5px 15px 0 #fef6f6;
+    background-color:  rgba(210, 210, 210, 0.623);
+    transition: 1s;
+}
+
+.exit:hover {
+    box-shadow: 0 5px 15px 0 #ffffff;
+    transform: scale(1.2);
+}
