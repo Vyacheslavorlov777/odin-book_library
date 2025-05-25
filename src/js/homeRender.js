@@ -29,6 +29,7 @@ export default () => {
                         <div class="form__item">
                             <div class="item__name">Name book:</div>
                             <input name="nameBook" class="item__input" type="text" autocomplete="off">
+                            <div class="message"></div>
                         </div>
                         <div class="form__item">
                             <div class="item__name">Author:</div>

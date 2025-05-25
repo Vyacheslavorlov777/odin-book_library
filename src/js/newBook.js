@@ -5,5 +5,6 @@ export default class Book {
         this.author = author;
         this.numbOfPages = numbOfPages;
         this.statusRead = 'read';
+        this.uiStyle = 'rgba(134, 33, 33, 0.73)';
     }
 };

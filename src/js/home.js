@@ -6,6 +6,17 @@ export default (books = []) => {
     
     homeRender()
 
+    const validateForm = (nameBook, authorBook, pagesBook) => {
+        const nameB = nameBook === '' ? false : true;
+        const authorB = authorBook === '' ? false : true;
+        const pagesB = Number(pagesBook) <= 0 ? false : true;
+
+        console.log(pagesB);
+        
+
+        return (nameB && authorB && pagesB)
+    };
+
     const elements = {
         body: document.querySelector('body'),
         libraryBtn: document.querySelector('.library__btn'),
@@ -26,12 +37,22 @@ export default (books = []) => {
         const bookName = formData.get('nameBook');
         const bookAuthor = formData.get('authorBook');
         const bookPages = formData.get('numbersOfBook');
+
         
-        const newBook = new Book(bookName, bookAuthor, bookPages);
+
+        
+
+        if (validateForm(bookName, bookAuthor, bookPages)) {
+            const newBook = new Book(bookName, bookAuthor, bookPages);
+            libraryBooks.push(newBook);   
+            elements.modal.close(); 
+        } else {
+            alert('Заполните корректно поля Книги!')
+        }
+        
+        
     
-        libraryBooks.push(newBook);   
-        elements.modal.close(); 
-        console.log(libraryBooks);
+        
     });
     
     elements.libraryBtn.addEventListener('click', (e) => {

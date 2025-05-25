@@ -69,6 +69,7 @@ body {
     border-radius: 25px;
     font-size: 20px;
     box-shadow: 0 5px 15px 0 #fef6f6;
+    cursor: pointer;
     transition: 1s;
 }
 
@@ -93,6 +94,7 @@ body {
     border-radius: 25px;
     font-size: 20px;
     box-shadow: 0 5px 15px 0 #fef6f6;
+    cursor: pointer;
 }
 
 .newBook__btn:hover {
@@ -197,6 +199,7 @@ body {
     background-color: #281414;
     box-shadow: 0 5px 15px 0 #d95e5e;
     color: #b36e00;
+    cursor: pointer;
     transition: 1s;
 }
 
@@ -300,6 +303,7 @@ body {
     box-shadow: 0 5px 15px 0 #a8a8a8;
     border-radius: 25px;
     border: none;
+    cursor: pointer;
 }
 
 .read-status {
@@ -321,9 +325,11 @@ body {
     box-shadow: 0 5px 15px 0 #fef6f6;
     background-color:  rgba(210, 210, 210, 0.623);
     transition: 1s;
+    cursor: pointer;
 }
 
 .exit:hover {
     box-shadow: 0 5px 15px 0 #ffffff;
     transform: scale(1.2);
 }
+

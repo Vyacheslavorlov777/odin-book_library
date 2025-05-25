@@ -14,75 +14,74 @@ export default (books) => {
 
 
     books.forEach((book) => {
-        const bookEl = document.createElement('div');
-        bookEl.classList.add('book');
-        containerLibrary.append(bookEl);
 
-        const bookItem = document.createElement('div');
-        bookItem.classList.add('book-item');
-        bookEl.append(bookItem);
+        const createdBook = (book) => {
+            const bookEl = document.createElement('div');
+            bookEl.classList.add('book');
+    
+            const bookItem = createBookDetails(book);
+            bookEl.append(bookItem);
+    
+            return bookEl;
+        }
+    
+        const createBookDetails = (book) => {
+            const bookItem = document.createElement('div');
+            bookItem.classList.add('book-item');
+    
+            const bookNamedClass = 'book__name';
+            const bookTextedClass = 'book__text';
+    
+            const fields = [
+                { label: 'nameBook', value: 'Name book: ', className: bookTextedClass },
+                { label: 'book__nameBook', value: book.name, className: bookNamedClass },
+                { label: 'author', value: 'Author: ', className: bookTextedClass },
+                { label: 'authorName', value: book.author, className: bookNamedClass },
+                { label: 'numberOfPages', value: 'Number of pages:', className: bookTextedClass },
+                { label: 'pages', value: book.numbOfPages.toString(), className: bookNamedClass },
+                { label: 'statusRead', value: 'Status read: ', className: bookTextedClass },
+            ];
+    
+            const createField = (label, className, value) => {
+                const element = document.createElement('div');
+                element.id = label;
+                element.classList.add(className);
+                element.textContent = value;
+    
+                return element;
+            };
 
-        const nameBook = document.createElement('div');
-        nameBook.id = 'nameBook';
-        nameBook.classList.add('book__text');
-        nameBook.textContent = 'Name book:';
-        bookItem.append(nameBook);
+            const changeStatus = (book) => {
+                const status = document.createElement('div');
+                status.id = 'status';
+                status.classList.add('book__name');
+                status.textContent = book.statusRead;
+                status.style.backgroundColor = book.uiStyle;
+        
+                status.addEventListener('click', (e) => {
+                    const newStatus = e.target.textContent === 'read' ? 'was read' : 'read';
+                    const newStyle = e.target.style.backgroundColor === 'rgba(134, 33, 33, 0.73)' ? 'rgba(53, 89, 50, 0.73)' : 'rgba(134, 33, 33, 0.73)';
 
-        const newBookName = document.createElement('div');
-        newBookName.id = 'book__nameBook';
-        newBookName.classList.add('book__name');
-        newBookName.textContent = book.name;
-        bookItem.append(newBookName);
+                    book.statusRead = newStatus;
+                    e.target.textContent = newStatus;
+                    book.uiStyle = newStyle
+                    e.target.style.backgroundColor = newStyle;
+                });
 
-        const authorBook = document.createElement('div');
-        authorBook.id ='author';
-        authorBook.classList.add('book__text');
-        authorBook.textContent = 'Author:';
-        bookItem.append(authorBook);
+                return status;
+            };
+    
+            fields.forEach((field) => {
+                bookItem.append(createField(field.label, field.className, field.value));
+            });
 
-        const authorName = document.createElement('div');
-        authorName.id = 'authorName';
-        authorName.classList.add('book__name');
-        authorName.textContent = book.author;
-        bookItem.append(authorName);
+            bookItem.append(changeStatus(book));
+    
+            return bookItem;
+        }
 
-        const pagesBook = document.createElement('div');
-        pagesBook.id ='numberOfPages';
-        pagesBook.classList.add('book__text');
-        pagesBook.textContent = 'Number of pages:';
-        bookItem.append(pagesBook);
+        containerLibrary.append(createdBook(book));
 
-        const pages = document.createElement('div');
-        pages.id = 'pages';
-        pages.classList.add('book__name');
-        pages.textContent = book.numbOfPages.toString();
-        bookItem.append(pages);
-
-        const statusBook = document.createElement('div');
-        statusBook.id ='statusRead';
-        statusBook.classList.add('book__text');
-        statusBook.textContent = 'Status read:';
-        bookItem.append(statusBook);
-
-        const statusActual = document.createElement('div');
-        statusActual.id = 'status';
-        statusActual.classList.add('book__name');
-        statusActual.textContent = book.statusRead;
-        statusActual.style.backgroundColor = '#862121ba';
-        bookItem.append(statusActual);
-
-        statusActual.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (book.statusRead === 'read') {
-                    book.statusRead = 'was read';
-                    e.target.textContent = book.statusRead;
-                    statusActual.style.backgroundColor = 'rgba(53, 89, 50, 0.73)';
-                } else {
-                    book.statusRead = 'read';
-                    e.target.textContent = book.statusRead;
-                    statusActual.style.backgroundColor = ' #862121ba';
-                }
-        });
     });
 
     const exit = document.createElement('div')
